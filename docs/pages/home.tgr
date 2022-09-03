@@ -1,0 +1,190 @@
+import tigerUI
+
+block : class[left-navbar]
+
+	block : class[logo-display]
+		image : images/logo.png
+		item : class[logo-text]
+			:: Calendar
+		/item
+	/block
+
+
+	block : class[item active]
+		image : images/calendar.png : class[icon]
+		:: Personal Calendar
+	/block
+
+
+	block : class[section-divider]
+	/block
+
+
+	block : class[item]
+		image : images/create.png : class[icon]
+		:: New Calendar
+	/block
+	block : class[item]
+		image : images/connect.png : class[icon]
+		:: Add Calendar
+	/block
+	block : class[item]
+		image : images/settings.png : class[icon]
+		:: Settings
+	/block
+
+
+	block : class[section-divider]
+	/block
+
+
+	block : class[item]
+		image : images/display.png : class[icon]
+		:: Use as Display
+	/block
+	block : class[item]
+		image : images/remote.png : class[icon]
+		:: Remote
+	/block
+
+
+/block
+
+
+
+
+block : class[top-navbar]
+
+	image : images/menu.png : class[toggle-left-navbar-button] onclick[toggleLeftNavbar()]
+
+/block
+
+
+
+
+
+
+
+
+
+
+
+block : class[main-content]
+
+block : id[calendar-space]
+
+/block
+
+	## : lnb : class[month-label] : September 2022
+
+	## : lnb : class[month-label] : September 2022
+	## : block : class[table]
+	## : 	block : class[row]
+	## : 		lnb : class[weekday-label] : S
+	## : 		lnb : class[weekday-label] : M
+	## : 		lnb : class[weekday-label] : T
+	## : 		lnb : class[weekday-label] : W
+	## : 		lnb : class[weekday-label] : T
+	## : 		lnb : class[weekday-label] : F
+	## : 		lnb : class[weekday-label] : S
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : /block
+
+	## : lnb : class[month-label] : October 2022
+	## : block : class[table]
+	## : 	block : class[row]
+	## : 		lnb : class[weekday-label] : S
+	## : 		lnb : class[weekday-label] : M
+	## : 		lnb : class[weekday-label] : T
+	## : 		lnb : class[weekday-label] : W
+	## : 		lnb : class[weekday-label] : T
+	## : 		lnb : class[weekday-label] : F
+	## : 		lnb : class[weekday-label] : S
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : 	block : class[row]
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 		lnb : class[day] : 1
+	## : 	/block
+	## : /block
+
+/block
+
+
