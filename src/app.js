@@ -52,66 +52,87 @@ function writeData(path, value) {
 //     onlyOnce: true
 // });
 
+// Library
+const date = new Date();
+let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let month_lengths = [31,28,31,30,31,30,31,31,30,31,30,31];
+let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+let calendarYear = date.getFullYear();
 
-// Reference, but working
+// On Load, RUN...
+if (dom('calendar-space')) {
+    buildCalendar(calendarYear, 0);
+    dom('month_' + months[date.getMonth()]).scrollIntoView();
+    dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).style.color = 'lightcoral';
+    // dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).style.fontWeight = '500';
 
+    for (let i = 0; i < 2; i++) {
+        dom_c('modify-display-year')[i].addEventListener('click', function() {
+            calendarYear = calendarYear + Number(dom_c('modify-display-year')[i].getAttribute('title'));
+            buildCalendar(calendarYear, 0);
+        })
+    }
 
-buildCalendar()
+    // dom_c('current-year-display')[0].addEventListener('click', function() {
+    //     calendarYear = prompt('What year do you want to transport to?');
+    //     buildCalendar(calendarYear, 0);
+    // })
+}
 
-// if (localStorage['custom calendar view'])
-
-function buildCalendar() {
-    const date = new Date();
-    let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    let month_lengths = [31,28,31,30,31,30,31,31,30,31,30,31];
-    let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    let currentYear = date.getFullYear();
-    for (let y = date.getFullYear(); y < date.getFullYear() + 10; y++) {
-        for (let m = 0; m < 5; m++) {
-            let year = date.getFullYear();
-            function firstDayOfMonthDay(year, month) {
+// Calendar Builder
+function buildCalendar(year_begin, extra_years) {
+    dom('calendar-space').innerHTML = '';
+    dom_c('current-year-display')[0].innerHTML = calendarYear;
+    for (let y = year_begin; y < (year_begin + extra_years + 1); y++) {
+        for (let m = 0; m < 12; m++) {
+            function firstDayOfMonthDay(month, year) {
                 return new Date(year, month, 1).getDay();
             }
 
-            let calc_month = months[m];
-            let calc_first_day = days[firstDayOfMonthDay(date.getFullYear(), m)];
-            let calc_first_day_num = firstDayOfMonthDay(date.getFullYear(), m);
+            function insertEmptyDay() {
+                generated_month_data = generated_month_data + `<div class='day'></div>`;
+            }
+
+            function insertDayWithTag(m, d, y, wd) {
+                generated_month_data = generated_month_data + `<div class='day' id='date_` + (Number(m) + 1) + `-` + d  + `-` + y + `'>` + d + `</div>`;
+            }
+
+            function endDiv() {
+                generated_month_data = generated_month_data + '</div>';
+            }
 
             var generated_month_data = '<div class="row">';
 
             let week_day_counter = 0;
             let day_counter = 1;
 
-            console.log(calc_month, calc_first_day)
-
-            console.log(calc_first_day_num);
-            for (let i = 0; i < calc_first_day_num; i++) {
-                generated_month_data = generated_month_data + `<div class='day'></div>`;
+            for (let i = 0; i < firstDayOfMonthDay(m, y); i++) {
+                insertEmptyDay()
                 week_day_counter++;
             }
 
             for (let i = week_day_counter; i < 7; i++) {
-                generated_month_data = generated_month_data + `<div class='day'>` + day_counter + `</div>`;
+                insertDayWithTag(m, day_counter, y);
                 day_counter++;
             }
-            generated_month_data = generated_month_data + '</div>';
+            endDiv();
             
             for (let i = day_counter; i < month_lengths[m]; i++) {
                 week_day_counter = 0;
                 generated_month_data = generated_month_data + `<div class='row'>`;
                 for (let i = week_day_counter; i < 7; i++) {
                     if (day_counter <= month_lengths[m]) {
-                        generated_month_data = generated_month_data + `<div class='day'>` + day_counter + `</div>`;
+                        insertDayWithTag(m, day_counter, y);
                         day_counter++;
                     } else {
                         break;
                     }
                 }
-                generated_month_data = generated_month_data + '</div>';
+                endDiv();
             }
 
             dom('calendar-space').innerHTML = dom('calendar-space').innerHTML + `
-            <div class='month-label'>` + calc_month + ' ' + y + `</div>
+            <div class='month-label' id='month_` + months[m] + `'>` + months[m] + ' ' + y + `</div>
             <div class='table'>
                 <div class='row'>
                     <div class='weekday-label'>S</div>
@@ -123,9 +144,7 @@ function buildCalendar() {
                     <div class='weekday-label'>S</div>
                 </div>
                 ` + generated_month_data + `
-            </div>
-            
-            `
+            </div>`
         }
     }
 }

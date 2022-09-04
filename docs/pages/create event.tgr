@@ -10,7 +10,7 @@ block : class[left-navbar]
 	/block
 
 
-	block : class[item active] onclick[open_page('home')]
+	block : class[item] onclick[open_page('home')]
 		image : images/calendar.png : class[icon]
 		:: Personal Calendar
 	/block
@@ -20,7 +20,7 @@ block : class[left-navbar]
 	/block
 
 
-	block : class[item] onclick[open_page('create event')]
+	block : class[item active] onclick[open_page('create event')]
 		image : images/plus.png : class[icon]
 		:: Create Event
 	/block
@@ -70,14 +70,6 @@ block : class[left-navbar]
 block : class[top-navbar]
 
 	image : images/menu.png : class[toggle-left-navbar-button] onclick[toggleLeftNavbar()]
-
-	image : images/minus.png : class[modify-display-year] title[-1]
-
-	block : class[current-year-display]
-		:: Year
-	/block
-	
-	image : images/add.png : class[modify-display-year] title[+1]
 
 /block
 

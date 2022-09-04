@@ -5,6 +5,10 @@ function bodyOnLoadFunctions() {
     document.head.appendChild(script);
 }
 
+function isMobileDevice(){
+    return window.matchMedia('(hover: none)').matches;
+}
+
 function toggleLeftNavbar() {
     let navbar = document.getElementsByClassName('left-navbar')[0];
     let content = document.getElementsByClassName('main-content')[0];
@@ -16,6 +20,8 @@ function toggleLeftNavbar() {
     } else {
         navbar.style.left = '0';
         content.style.left = '200pt';
-        content.style.width = 'calc(100vw - 200pt)';
+        if (!isMobileDevice()) {
+            content.style.width = 'calc(100vw - 200pt)';
+        }
     }
 }

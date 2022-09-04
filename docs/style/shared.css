@@ -207,8 +207,8 @@ a{
 }
 
 .section-divider{
-    height: 1pt;
-    margin: 15pt;
+    height: 1px;
+    margin: 10pt;
     background-color: var(--accentColor);
 }
 
@@ -248,6 +248,7 @@ a{
 .table{
     margin: auto;
     padding: 1px;
+    margin-bottom: 30pt;
 }
 
 .table .row{
@@ -269,10 +270,14 @@ a{
 }
 
 .month-label{
-    font-size: 40pt;
+    font-size: 30pt;
     text-align: center;
-    padding-top: 50pt;
+    padding-top: 30pt;
     padding-bottom: 15pt;
+    position: sticky;
+    top: 0;
+    background-color: var(--charcoal);
+    /* background: linear-gradient(to top, var(--charcoal) 50%, rgba(0,0,0,0)); */
 }
 
 .weekday-label{
@@ -282,8 +287,13 @@ a{
     color: var(--seafoam)
 }
 
+.weekend{
+    color: gray;
+}
+
 .day{
     font-size: 20pt;
+    font-weight: 400;
     width: 100%;
     aspect-ratio: 5 / 2;
 }
@@ -295,4 +305,26 @@ a{
 
 .busy{
     color: var(--accentColor)
+}
+
+.current-year-display{
+    font-size: 15pt;
+    padding: 5pt;
+    border-radius: 5pt;
+    /* cursor: pointer; */
+    cursor: default;
+}
+
+/* .current-year-display:hover{
+    background-color: rgb(67, 67, 67);
+} */
+
+.modify-display-year{
+    height: 50%;
+    padding: 5pt;
+    cursor: pointer;
+}
+
+.modify-display-year:hover{
+    opacity: 0.8;
 }
