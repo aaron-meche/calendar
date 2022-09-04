@@ -63,7 +63,6 @@ let calendarYear = date.getFullYear();
 if (dom('calendar-space')) {
     buildCalendar(calendarYear, 0);
     dom('month_' + months[date.getMonth()]).scrollIntoView();
-    dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).style.color = 'lightcoral';
     // dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).style.fontWeight = '500';
 
     for (let i = 0; i < 2; i++) {
@@ -147,4 +146,5 @@ function buildCalendar(year_begin, extra_years) {
             </div>`
         }
     }
+    dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).style.color = 'lightcoral';
 }
