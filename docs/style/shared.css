@@ -117,8 +117,6 @@ a{
     width: 15pt;
     padding: 10pt;
     margin: 5pt;
-    opacity: 0.7;
-    transition: height 200ms, margin 200ms;
 }
 
 
@@ -286,8 +284,8 @@ a{
 
 .weekday-label{
     font-size: 20pt;
+    height: 40pt;
     width: 100%;
-    aspect-ratio: 2 / 1;
     color: var(--seafoam);
 }
 
@@ -296,8 +294,9 @@ a{
 }
 
 .day{
+    height: 65pt;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    /* aspect-ratio: 1 / 1; */
     border-radius: 10pt;
     cursor: default;
     transition: background-color 100ms;
