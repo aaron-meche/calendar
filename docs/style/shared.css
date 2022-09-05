@@ -245,28 +245,32 @@ a{
 
 
 
-.table{
+#calendar-space{
+    width: 50%;
     margin: auto;
-    padding: 1px;
+}
+
+.table{
     margin-bottom: 30pt;
 }
 
 .table .row{
     height: auto;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(7, minmax(1pt, 1fr));
     justify-items: center;
+    border-radius: 10pt;
 }
 
 .table .row:hover{
     background-color: var(--onyx);
 }
 
-.table .row div{
+.table .row .calendar-object{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .month-label{
@@ -277,14 +281,14 @@ a{
     position: sticky;
     top: 0;
     background-color: var(--charcoal);
-    /* background: linear-gradient(to top, var(--charcoal) 50%, rgba(0,0,0,0)); */
+    z-index: 10;
 }
 
 .weekday-label{
     font-size: 20pt;
     width: 100%;
-    aspect-ratio: 5 / 2;
-    color: var(--seafoam)
+    aspect-ratio: 2 / 1;
+    color: var(--seafoam);
 }
 
 .weekend{
@@ -292,20 +296,57 @@ a{
 }
 
 .day{
-    font-size: 20pt;
-    font-weight: 400;
     width: 100%;
-    aspect-ratio: 5 / 2;
+    aspect-ratio: 1 / 1;
+    border-radius: 10pt;
+    cursor: default;
+    transition: background-color 100ms;
+    position: relative;
 }
 
 .day:hover{
     background-color: var(--darkgray);
-    /* outline: solid 1px gray; */
 }
 
-.busy{
-    color: var(--accentColor)
+.empty:hover{
+    background: none;
 }
+
+.current-day .date{
+    color: lightcoral
+}
+
+
+
+/* Date Info */
+
+
+
+.date{
+    font-size: 20pt;
+    font-weight: 400;
+}
+
+.date-info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 10pt);
+    padding: 5pt;
+    color: var(--seafoam);
+    font-size: 10pt;
+    transition: font-size 200ms;
+}
+
+/* .day:hover .date-info{
+    bottom: 5pt;
+} */
+
+
+
+
+
+
 
 .current-year-display{
     font-size: 15pt;
@@ -314,10 +355,6 @@ a{
     /* cursor: pointer; */
     cursor: default;
 }
-
-/* .current-year-display:hover{
-    background-color: rgb(67, 67, 67);
-} */
 
 .modify-display-year{
     height: 50%;

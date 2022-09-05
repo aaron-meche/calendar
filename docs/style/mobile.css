@@ -7,11 +7,6 @@
     left: 0;
 }
 
-.weekday-label{
-    aspect-ratio: 1 / 1;
-}
-
-.day{
+#calendar-space{
     width: 100%;
-    aspect-ratio: 1 / 1;
 }

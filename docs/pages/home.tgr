@@ -92,7 +92,7 @@ block : class[top-navbar]
 
 
 block : class[main-content]
-	block : id[calendar-space]
+	block : class[middle-panel panel] id[calendar-space]
 
 	/block
 /block

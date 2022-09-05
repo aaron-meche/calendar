@@ -89,11 +89,24 @@ function buildCalendar(year_begin, extra_years) {
             }
 
             function insertEmptyDay() {
-                generated_month_data = generated_month_data + `<div class='day'></div>`;
+                generated_month_data = generated_month_data + `<div class='calendar-object day empty'></div>`;
             }
 
             function insertDayWithTag(m, d, y, wd) {
-                generated_month_data = generated_month_data + `<div class='day' id='date_` + (Number(m) + 1) + `-` + d  + `-` + y + `'>` + d + `</div>`;
+                let randomNum = Math.floor(Math.random() * 2);
+                let eventDisplay = '';
+                for (let i = 0; i < randomNum; i++) {
+                    eventDisplay = eventDisplay + '●';
+                }
+                generated_month_data = generated_month_data + `
+
+                <div class='calendar-object day' id='date_` + (Number(m) + 1) + `-` + d  + `-` + y + `'>
+                <div>
+                    <div class='date'>` + d + `</div>
+                    <div class='date-info'>` + eventDisplay + `</div>
+                </div>
+                </div>
+                `;
             }
 
             function endDiv() {
@@ -134,17 +147,18 @@ function buildCalendar(year_begin, extra_years) {
             <div class='month-label' id='month_` + months[m] + `'>` + months[m] + ' ' + y + `</div>
             <div class='table'>
                 <div class='row'>
-                    <div class='weekday-label'>S</div>
-                    <div class='weekday-label'>M</div>
-                    <div class='weekday-label'>T</div>
-                    <div class='weekday-label'>W</div>
-                    <div class='weekday-label'>T</div>
-                    <div class='weekday-label'>F</div>
-                    <div class='weekday-label'>S</div>
+                    <div class='calendar-object weekday-label'>S</div>
+                    <div class='calendar-object weekday-label'>M</div>
+                    <div class='calendar-object weekday-label'>T</div>
+                    <div class='calendar-object weekday-label'>W</div>
+                    <div class='calendar-object weekday-label'>T</div>
+                    <div class='calendar-object weekday-label'>F</div>
+                    <div class='calendar-object weekday-label'>S</div>
                 </div>
                 ` + generated_month_data + `
-            </div>`
+            </div>
+            `
         }
     }
-    dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).style.color = 'lightcoral';
+    dom('date_' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear()).classList.add('current-day');
 }
