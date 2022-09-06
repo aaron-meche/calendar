@@ -12,8 +12,12 @@ block : class[left-navbar]
 
 	block : class[item active] onclick[open_page('home')]
 		image : images/calendar.png : class[icon]
-		:: Personal Calendar
+		:: US Holidays
 	/block
+	## : block : class[item active] onclick[open_page('home')]
+	## : 	image : images/calendar.png : class[icon]
+	## : 	:: School
+	## : /block
 
 
 	block : class[section-divider]

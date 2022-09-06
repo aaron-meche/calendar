@@ -287,6 +287,7 @@ a{
     height: 40pt;
     width: 100%;
     color: var(--seafoam);
+    border-bottom: solid 1pt var(--darkgray)
 }
 
 .weekend{
